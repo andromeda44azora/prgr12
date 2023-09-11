@@ -1,9 +1,25 @@
 class Cilveks {
-    constructor( age, name, sex, height){
+    constructor( age, name, sex){
         this.vecums = age;
         this.vards = name;
         this.dzimums = sex;
-        this.augums = height;
+        
+        let rezultataVieta = document.getElementById("rezultats")
+
+        let cilvekaDiv = document.createElement("div")
+        this.infoVieta = document.createElement("p")
+        cilvekaDiv.appendChild(this.infoVieta)
+
+        let dzimsanasdienasPoga = document.createElement("button")
+        dzimsanasdienasPoga.innerHTML = "Dzimšanas diena!"
+        dzimsanasdienasPoga.onclick = () => this.svinetDzD();
+
+        cilvekaDiv.appendChild(dzimsanasdienasPoga);
+
+        rezultataVieta.appendChild(cilvekaDiv);
+
+
+        
         this.info();
     }
     svinetDzD(){
@@ -15,8 +31,8 @@ class Cilveks {
         this.info();
     }
     mainitDzimumu( jaunaisDzimums=""){
-        if( jaunaisDzimums == "" ){
-            if( this.dzimums == "s" ){
+        if( jaunaisDzimums == ""){
+            if( this.dzimums == "s"){
                 this.dzimums = "v";
             } else {
                 this.dzimums = "s";
@@ -25,27 +41,33 @@ class Cilveks {
             this.dzimums = jaunaisDzimums;
         }
     }
-    mainitAugumu(){
-        this.augums++;
-        this.info();
-    }
+    
 
 
     info(){
-        let teksts =  "Sveiki! Mani sauc " + this.vards + ". Man ir " + this.vecums + " gadu. Es esmu " + this.augums + " cm."
+        let teksts =  "Sveiki! Mani sauc " + this.vards + ". Man ir " + this.vecums + " gadu."
         //kad mainas dzimums
         teksts += " Es esmu ";
         if ( this.dzimums == "s") {
             teksts += "sieviete.";
-        } else if (this.dzimums == "v"){
+        } else if ( this.dzimums == "v"){
             teksts += "vīrietis.";
         } else {
             teksts =+ this.dzimums;
         }
-        console.log( teksts)
+        console.log(teksts)
+        this.infoVieta.innerHTML = teksts
     }
 
  
 }
 
-pirmais = new Cilveks( 15, "Katrīna", "s", 168)
+let visiCilveki = [];
+//aizvietojums let visicilveki = new cilveks 58rinda
+
+function izveidotCilveku(){
+    let vards = document.getElementById( "vards").value
+    let dzimums = document.getElementById( "dzimums").value
+    let vecums = document.getElementById( "vecums").value
+    visiCilveki.push( new Cilveks( vecums, vards, dzimums))
+}
