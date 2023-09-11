@@ -16,6 +16,20 @@ class Cilveks {
 
         cilvekaDiv.appendChild(dzimsanasdienasPoga);
 
+        // rezultataVieta.appendChild(cilvekaDiv);
+
+        this.jaunaisVards = document.createElement("input")
+        this.jaunaisVards.type = "text"
+
+        cilvekaDiv.appendChild(this.jaunaisVards)
+
+        let mainitVarduPoga = document.createElement ("button")
+        mainitVarduPoga.innerHTML = "mainīt vārdu"
+        mainitVarduPoga.onclick = () => this.mainitVardu();
+
+
+
+        cilvekaDiv.appendChild(mainitVarduPoga);
         rezultataVieta.appendChild(cilvekaDiv);
 
 
@@ -26,8 +40,8 @@ class Cilveks {
         this.vecums++;
         this.info();
     }
-    mainitVardu( jaunaisVards){
-        this.vards = jaunaisVards;
+    mainitVardu(){
+        this.vards = this.jaunaisVards.value;
         this.info();
     }
     mainitDzimumu( jaunaisDzimums=""){
