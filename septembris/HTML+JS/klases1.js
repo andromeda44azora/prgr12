@@ -16,8 +16,6 @@ class Cilveks {
 
         cilvekaDiv.appendChild(dzimsanasdienasPoga);
 
-        // rezultataVieta.appendChild(cilvekaDiv);
-
         this.jaunaisVards = document.createElement("input")
         this.jaunaisVards.type = "text"
 
